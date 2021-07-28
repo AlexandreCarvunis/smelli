@@ -54,12 +54,28 @@ class GlobalLikelihood(object):
 
     _fast_likelihoods_yaml_fixckm = [
         'fast_likelihood_quarks_fixckm.yaml',
-        'fast_likelihood_leptons.yaml'
+        'fast_likelihood_leptons.yaml',
+        'fast_likelihood_BDstarlv_fixckm_mu_e.yaml',
+        'fast_likelihood_BDstarlv_fixckm_Delta_Sigma.yaml',
+        'fast_likelihood_BDstarlv_fixckm_wo_bobeth.yaml',
+        'fast_likelihood_BDstarlv_fixckm_bobeth_only.yaml',
+        'fast_likelihood_BDstarlv_fixckm_Belle_only.yaml',
+        'fast_likelihood_BDstarlv_fixckm_w_DeltaAFB.yaml',
+        'fast_likelihood_BDstarlv_fixckm_bobeth_ang.yaml'
     ]
 
     _fast_likelihoods_yaml = [
         'fast_likelihood_quarks.yaml',
-        'fast_likelihood_leptons.yaml'
+        'fast_likelihood_leptons.yaml',
+        'fast_likelihood_BDstarlv_fixckm_mu_e.yaml',
+        'fast_likelihood_BDstarlv_fixckm_Delta_Sigma.yaml',
+        'fast_likelihood_BDstarlv_fixckm_wo_bobeth.yaml',
+        'fast_likelihood_BDstarlv_fixckm_bobeth_only.yaml',
+        'fast_likelihood_BDstarlv_fixckm_Belle_only.yaml',
+        'fast_likelihood_BDstarlv_mu_e.yaml',
+        'fast_likelihood_Belle2017.yaml',
+        'fast_likelihood_BDstarlv_fixckm_w_DeltaAFB.yaml',
+        'fast_likelihood_BDstarlv_fixckm_bobeth_ang.yaml'
     ]
 
     _likelihoods_yaml = [
@@ -74,6 +90,8 @@ class GlobalLikelihood(object):
         'likelihood_lfv.yaml',
         'likelihood_zlfv.yaml',
         'likelihood_higgs.yaml',
+        'likelihood_DeltaAFB.yaml',
+        'likelihood_rd_rds_mue.yaml'
     ]
 
     def __init__(self, eft='SMEFT', basis=None,
@@ -282,6 +300,31 @@ class GlobalLikelihood(object):
             kwargs['Nexp'] = self._Nexp
         for name, flh in self.fast_likelihoods.items():
             flh.make_measurement(*args, **kwargs)
+        self._sm_cov_loaded = True
+        
+    def make_measurement_np(self, *args, **kwargs):
+        """Initialize the likelihood by producing a pseudo-measurement containing both
+        experimental uncertainties as well as theory uncertainties stemming
+        from nuisance parameters.
+
+        Optional parameters:
+
+        - `N`: number of random computations for the SM covariance (computing
+          time is proportional to it; more means less random fluctuations.)
+        - `Nexp`: number of random computations for the experimental covariance.
+          This is much less expensive than the theory covariance, so a large
+          number can be afforded (default: 5000).
+        - `threads`: number of parallel threads for the SM
+          covariance computation. Defaults to 1 (no parallelization).
+        - `force`: if True, will recompute SM covariance even if it
+          already has been computed. Defaults to False.
+        - `force_exp`: if True, will recompute experimental central values and
+          covariance even if they have already been computed. Defaults to False.
+        """
+        if 'Nexp' not in kwargs:
+            kwargs['Nexp'] = self._Nexp
+        for name, flh in self.fast_likelihoods.items():
+            flh.make_measurement_np(*args, **kwargs)
         self._sm_cov_loaded = True
 
     def save_sm_covariances(self, folder):
