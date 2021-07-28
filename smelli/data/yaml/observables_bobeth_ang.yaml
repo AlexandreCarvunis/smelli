@@ -1,0 +1,8 @@
+- name: SigmaFL(B0->D*lnu)
+- name: SigmaAFB(B0->D*lnu)
+- name: SigmaFLt(B0->D*lnu)
+- name: Sigma<S3>(B0->D*lnu)
+- name: DeltaFL(B0->D*lnu)
+- name: DeltaAFB(B0->D*lnu)
+- name: DeltaFLt(B0->D*lnu)
+- name: Delta<S3>(B0->D*lnu)

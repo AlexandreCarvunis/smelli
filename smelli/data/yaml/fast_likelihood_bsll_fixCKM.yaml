@@ -1,0 +1,16 @@
+name: Fast Likelihood Quark Sector
+observables: !include_merge_list
+  # b->sll
+  - observables_bkstarmumu_br_LHCb.yaml
+  - observables_bkstarmumu_lhcb.yaml
+  - observables_bpkstarmumu_lhcb.yaml
+  - observables_lambdablambdall_br.yaml
+  - observables_lambdablambdall_afb.yaml
+  - observables_bsphimumu.yaml
+  
+  # CKM input observables
+  - observables_ckm_input.yaml
+  
+include_measurements: !include_merge_list
+  - measurements_bsll.yaml
+  - measurements_fixckm.yaml

@@ -1,0 +1,6 @@
+name: B->Dstarlv
+observables: !include_merge_list
+    - observables_bobeth_et_al_mu_e.yaml
+    
+include_measurements: !include_merge_list
+    - measurements_bobeth_et_al_mu_e.yaml

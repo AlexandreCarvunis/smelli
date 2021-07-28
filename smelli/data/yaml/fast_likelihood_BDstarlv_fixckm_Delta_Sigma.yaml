@@ -1,0 +1,15 @@
+name: B->Dstarlv
+observables: !include_merge_list
+    - observables_BDstarmunu_BR.yaml
+    - observables_bobeth_et_al_Delta_Sigma.yaml
+    - observables_rds.yaml
+    - observables_rd.yaml
+    
+  # CKM input observables
+    - observables_ckm_input.yaml
+    
+include_measurements: !include_merge_list
+    - measurements_BDstarmunu_BR.yaml
+    - measurements_bobeth_et_al_Delta_Sigma.yaml
+    - measurements_rd_rds.yaml
+    - measurements_fixckm.yaml
