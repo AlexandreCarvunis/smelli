@@ -62,6 +62,7 @@ class GlobalLikelihood(object):
         'fast_likelihood_BDstarlv_fixckm_Belle_only.yaml',
         'fast_likelihood_BDstarlv_fixckm_w_DeltaAFB.yaml',
         'fast_likelihood_BDstarlv_fixckm_bobeth_ang.yaml',
+        'fast_likelihood_BDstarlv_fixckm_bobeth_ang_Delta.yaml',
         'fast_likelihood_bsll_fixCKM.yaml',
         'fast_likelihood_Belle2017.yaml'
     ]
