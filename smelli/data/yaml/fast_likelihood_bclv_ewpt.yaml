@@ -1,0 +1,23 @@
+name: Fast Likelihood bclv and ewpt
+observables: !include_merge_list
+  # b->clv
+  - observables_bctaunu_other.yaml
+  - observables_bctaunu_diff.yaml
+  - observables_bclnu_lfu.yaml
+  - observables_ewpt.yaml
+  - observables_zlfv.yaml
+  - observables_taucc.yaml
+  - observables_bqnunu.yaml
+  - observables_higgs.yaml
+
+  # CKM input observables
+  - observables_ckm_input.yaml
+include_measurements: !include_merge_list
+  - measurements_lfu_fccc.yaml
+  - measurements_ewpt.yaml
+  - measurements_fixckm.yaml
+  - measurements_rd_rds.yaml
+  - measurements_zlfv.yaml
+  - measurements_taulnunu.yaml
+  - measurements_bqnunu.yaml
+  - measurements_higgs.yaml
