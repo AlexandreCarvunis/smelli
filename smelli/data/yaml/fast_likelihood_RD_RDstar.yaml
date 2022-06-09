@@ -1,0 +1,6 @@
+name: Rtaul(B->D(star)lv)
+observables: !include_merge_list
+    - observables_rd_rds.yaml
+    
+include_measurements: !include_merge_list
+    - measurements_rd_rds_taul.yaml

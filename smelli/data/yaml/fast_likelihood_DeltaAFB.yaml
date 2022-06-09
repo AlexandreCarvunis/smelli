@@ -1,0 +1,11 @@
+name: DeltaAFB
+
+observables: !include_merge_list
+  - observables_DeltaAFB.yaml
+  
+  # CKM input observables
+  - observables_ckm_input.yaml
+  
+include_measurements: !include_merge_list
+  - measurements_DeltaAFB.yaml
+  - measurements_fixckm.yaml
